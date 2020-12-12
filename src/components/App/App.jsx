@@ -1,11 +1,13 @@
 import React from 'react';
+import Calendar from '../Calendar/Calendar';
+import GoogleAuth from '../GoogleAuth/GoogleAuthContainer';
 
-function App() {
-  return (
-    <div>
-      <h3>WIP...</h3>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <GoogleAuth>
+      <Calendar />
+    </GoogleAuth>
+  </div>
+);
 
 export default App;

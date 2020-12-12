@@ -12,9 +12,13 @@
     "format": "eslint --fix --ext js,jsx src"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "react-redux": "^7.2.2",
+    "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
@@ -46,10 +50,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 100,
+        "statements": 90,
         "branches": 100,
-        "functions": 100,
-        "lines": 100
+        "functions": 80,
+        "lines": 90
       }
     },
     "coverageReporters": [

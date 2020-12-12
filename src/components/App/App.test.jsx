@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import App from './App';
+import GoogleAuth from '../GoogleAuth/GoogleAuthContainer';
+import Calendar from '../Calendar/Calendar';
 
 describe('App', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-  });
-
-  it('renders header with a dummy text', () => {
+  it('renders GoogleAuth component with a Calendar', () => {
     const wrapper = shallow(<App />);
-    const header = wrapper.find('h3');
+    const googleAuth = wrapper.find(GoogleAuth);
+    const calendar = wrapper.find(Calendar);
 
-    expect(header.text()).toContain('WIP...');
+    expect(googleAuth).toHaveLength(1);
+    expect(calendar).toHaveLength(1);
   });
 });
