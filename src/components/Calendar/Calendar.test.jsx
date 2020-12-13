@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Calendar from './Calendar';
+import CalendarMonth from './CalendarMonth/CalendarMonth';
+import CalendarList from './CalendarList/CalendarList';
+import WeekView from './WeekView/WeekView';
 
 describe('Calendar', () => {
   const defaultProps = {
     calendars: [],
     events: [],
-    fetchEvents: () => {},
+    fetchThisWeeksEvents: () => {},
     fetchCalendars: () => {},
   };
 
@@ -21,9 +24,26 @@ describe('Calendar', () => {
     });
   });
 
-  it('renders Calendar view text', () => {
+  it('renders CalendarMonth', () => {
     const wrapper = shallow(<Calendar {...defaultProps} />);
-    const header = wrapper.find('h3');
-    expect(header.text()).toContain('Calendar View');
+    const month = wrapper.find(CalendarMonth);
+    expect(month).toHaveLength(1);
+  });
+
+  it('renders CalendarList', () => {
+    const props = { ...defaultProps, selectedCalendarId: 'abc' };
+    const wrapper = shallow(<Calendar {...props} />);
+    const list = wrapper.find(CalendarList);
+    expect(list).toHaveLength(1);
+    const listProps = list.props();
+    expect(listProps.calendars).toEqual(props.calendars);
+    expect(listProps.selectedCalendarId).toEqual(props.selectedCalendarId);
+    expect(listProps.fetchThisWeeksEvents).toEqual(props.fetchThisWeeksEvents);
+  });
+
+  it('renders WeekView', () => {
+    const wrapper = shallow(<Calendar {...defaultProps} />);
+    const week = wrapper.find(WeekView);
+    expect(week).toHaveLength(1);
   });
 });

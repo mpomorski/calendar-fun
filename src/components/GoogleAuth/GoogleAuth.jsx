@@ -50,16 +50,16 @@ class GoogleAuth extends React.Component {
     } = this.props;
     if (pending) {
       // TODO: replace with a nice spinner
-      return <h3 data-locator="google-auth-pending">Auth pending...</h3>;
+      return <p>Auth pending...</p>;
     }
 
     if (error) {
       // TODO: apply styling
       return (
-        <h3>
+        <p>
           Auth error occurred, please check your config.
           Please note, that you can not be using incognito mode.
-        </h3>
+        </p>
       );
     }
 

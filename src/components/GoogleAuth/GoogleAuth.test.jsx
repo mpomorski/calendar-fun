@@ -46,7 +46,7 @@ describe('GoogleAuth', () => {
   it('renders Auth pending text when pending', () => {
     const props = { ...defaultProps, pending: true };
     const wrapper = shallow(<GoogleAuth {...props} />);
-    const header = wrapper.find('h3');
+    const header = wrapper.find('p');
 
     expect(header.text()).toContain('Auth pending...');
   });
@@ -54,7 +54,7 @@ describe('GoogleAuth', () => {
   it('renders error text when error', () => {
     const props = { ...defaultProps, error: true };
     const wrapper = shallow(<GoogleAuth {...props} />);
-    const header = wrapper.find('h3');
+    const header = wrapper.find('p');
 
     expect(header.text()).toContain('Auth error occurred, please check your config. '
       + 'Please note, that you can not be using incognito mode.');

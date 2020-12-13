@@ -3,11 +3,9 @@ import Calendar from '../Calendar/CalendarContainer';
 import GoogleAuth from '../GoogleAuth/GoogleAuthContainer';
 
 const App = () => (
-  <div>
-    <GoogleAuth>
-      <Calendar />
-    </GoogleAuth>
-  </div>
+  <GoogleAuth>
+    <Calendar />
+  </GoogleAuth>
 );
 
 export default App;

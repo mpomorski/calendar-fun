@@ -1,0 +1,14 @@
+@import "src/styles/variables";
+
+.CalendarList {
+  display: flex;
+  flex-direction: column;
+}
+
+.CalendarList_header{
+  color: $grey;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0.5rem 1rem;
+}

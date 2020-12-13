@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.Calendar {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Calendar_header {
+  border-bottom: 2px solid $light-grey;
+}
+
+.CalendarContent {
+  display: flex;
+  flex: 1 1;
+  background-color: #f4f3f0;
+}
+
+.CalendarContent_nav {
+  order: -1;
+  flex: 0 0 12rem;
+  padding: 1.5rem 1rem;
+}
+
+.CalendarContent_main {
+  flex: 1;
+}
