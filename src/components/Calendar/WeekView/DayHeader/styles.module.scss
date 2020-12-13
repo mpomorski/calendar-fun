@@ -1,0 +1,50 @@
+@import "src/styles/variables";
+
+.DayHeader {
+  background-color: white;
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 8rem;
+  padding: 0 0.5rem;
+
+  border: 1px solid $light-grey;
+  border-top: none;
+}
+.DayHeader:first-child {
+  border-left: none;
+  border-top-left-radius: 5px;
+}
+
+.DayHeader:last-child {
+  border-right: none;
+  border-top-right-radius: 5px;
+}
+
+.DayHeader___empty {
+  display: flex;
+  flex: 1 0 4rem;
+}
+
+.DayHeader_dayOfTheMonth {
+  color: $darkest-grey;
+  font-size: 20px;
+  margin: 0.5rem;
+}
+
+.DayHeader_dayOfTheMonth___highlighted {
+  border-radius: 50%;
+  padding: 0.3rem;
+  background-color: #5c6ae4;
+  box-shadow: 0 0 1px 2px #5c6ae4;
+  color: $off-white;
+}
+
+.DayHeader_dayOfTheWeek {
+  color: $grey;
+}
+
+.DayHeader_dayOfTheWeek___highlighted {
+  color: $dark-grey;
+}

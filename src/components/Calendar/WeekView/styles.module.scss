@@ -1,0 +1,11 @@
+@import "src/styles/variables";
+
+.WeekView {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.WeekView_header {
+  display: flex;
+}
