@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import GoogleAuth from './GoogleAuth';
 
-const initialGapi = window.gapi;
-
 describe('GoogleAuth', () => {
   const defaultProps = {
     pending: false,
@@ -19,14 +17,14 @@ describe('GoogleAuth', () => {
 
   beforeEach(() => {
     gapiLoadMock = jest.fn(() => {});
-    delete window.location;
+
     window.gapi = {
       load: gapiLoadMock,
     };
   });
 
   afterAll(() => {
-    window.gapi = initialGapi;
+    delete window.gapi;
   });
 
   describe('when mounted', () => {

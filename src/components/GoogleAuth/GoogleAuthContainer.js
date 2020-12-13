@@ -15,7 +15,6 @@ const mapDispatchToProps = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
-
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth);

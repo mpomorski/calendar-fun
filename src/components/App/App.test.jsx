@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import GoogleAuth from '../GoogleAuth/GoogleAuthContainer';
-import Calendar from '../Calendar/Calendar';
+import Calendar from '../Calendar/CalendarContainer';
 
 describe('App', () => {
   it('renders GoogleAuth component with a Calendar', () => {
