@@ -5,7 +5,10 @@ import { sampleCalendars } from '../__tests__/dataSamples';
 describe('calendarReducer', () => {
   const initialState = {
     calendars: [],
+    events: [],
     fetchingCalendars: false,
+    fetchingEvents: false,
+    selectedCalendarId: null,
   };
 
   it('should return previous state for unknown action', () => {

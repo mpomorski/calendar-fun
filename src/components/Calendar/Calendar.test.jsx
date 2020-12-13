@@ -5,6 +5,8 @@ import Calendar from './Calendar';
 describe('Calendar', () => {
   const defaultProps = {
     calendars: [],
+    events: [],
+    fetchEvents: () => {},
     fetchCalendars: () => {},
   };
 

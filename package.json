@@ -12,6 +12,7 @@
     "format": "eslint --fix --ext js,jsx src"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
