@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import CalendarList from './CalendarList/CalendarList';
 import CalendarMonth from './CalendarMonth/CalendarMonth';
 import WeekView from './WeekView/WeekView';
+import { calendarShape, eventShape } from '../propTypes';
 
 class Calendar extends React.Component {
   componentDidMount() {
@@ -16,7 +17,6 @@ class Calendar extends React.Component {
     const {
       calendars, events, selectedCalendarId, fetchThisWeeksEvents,
     } = this.props;
-    console.log('events', events);
     return (
       <div className={styles.Calendar}>
         <header className={styles.Calendar_header}>
@@ -31,7 +31,10 @@ class Calendar extends React.Component {
             />
           </nav>
           <main className={styles.CalendarContent_main}>
-            <WeekView />
+            <WeekView
+              events={events}
+              selectedCalendar={calendars.find((calendar) => calendar.id === selectedCalendarId)}
+            />
           </main>
         </div>
       </div>
@@ -44,26 +47,11 @@ Calendar.defaultProps = {
 };
 
 Calendar.propTypes = {
-  calendars: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      summary: PropTypes.string.isRequired,
-      backgroundColor: PropTypes.string.isRequired,
-      foregroundColor: PropTypes.string.isRequired,
-      primary: PropTypes.bool,
-    }),
-  ).isRequired,
-  events: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      summary: PropTypes.string.isRequired,
-      start: PropTypes.string.isRequired,
-      end: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  calendars: PropTypes.arrayOf(calendarShape).isRequired,
+  events: PropTypes.arrayOf(eventShape).isRequired,
+  selectedCalendarId: PropTypes.string,
   fetchCalendars: PropTypes.func.isRequired,
   fetchThisWeeksEvents: PropTypes.func.isRequired,
-  selectedCalendarId: PropTypes.string,
 };
 
 export default Calendar;

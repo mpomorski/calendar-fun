@@ -9,3 +9,14 @@
 .WeekView_header {
   display: flex;
 }
+
+.WeekView_grid {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.WeekView_row {
+  display: flex;
+}
+

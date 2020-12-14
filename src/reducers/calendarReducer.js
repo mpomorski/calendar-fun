@@ -28,6 +28,7 @@ export default (state = initialState, action) => {
         ...state,
         fetchingEvents: true,
         selectedCalendarId: action.payload.calendarId,
+        events: [],
       };
     case FETCH_EVENTS_SUCCESS:
       return {

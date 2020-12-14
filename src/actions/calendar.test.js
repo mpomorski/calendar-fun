@@ -20,12 +20,18 @@ const getAction = (store, type) => {
 };
 
 const validGapiListCalendarsResponse = '{ "items": []}';
+const validGapiListEventsResponse = '{ "items": []}';
 
 describe('calendar async actions', () => {
   let gapiListCalendarsMock;
+  let gapiListEventsMock;
 
-  const mockGapiListCalendarsResponse = (body) => {
-    gapiListCalendarsMock = jest.fn(() => Promise.resolve({ body }));
+  const mockGapiClientResponses = (
+    calendarsBody = validGapiListCalendarsResponse,
+    eventsBody = validGapiListEventsResponse,
+  ) => {
+    gapiListCalendarsMock = jest.fn(() => Promise.resolve({ body: calendarsBody }));
+    gapiListEventsMock = jest.fn(() => Promise.resolve({ body: eventsBody }));
     window.gapi = {
       client: {
         calendar: {
@@ -33,12 +39,15 @@ describe('calendar async actions', () => {
             list: gapiListCalendarsMock,
           },
         },
+        events: {
+          list: gapiListEventsMock,
+        },
       },
     };
   };
 
   beforeEach(() => {
-    mockGapiListCalendarsResponse(validGapiListCalendarsResponse);
+    mockGapiClientResponses(validGapiListCalendarsResponse);
   });
 
   afterAll(() => {
@@ -116,7 +125,7 @@ describe('calendar async actions', () => {
         foregroundColor: '#111111',
       }];
 
-      mockGapiListCalendarsResponse(gapiListCalendarsResponseBody);
+      mockGapiClientResponses(gapiListCalendarsResponseBody);
 
       store.dispatch(fetchCalendars());
 

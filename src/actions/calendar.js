@@ -1,7 +1,7 @@
 import {
   getCurrentDate,
   getIsoEndOfWeek,
-  getIsoStartOfWeek,
+  getIsoStartOfWeek, toDateFromIso,
 } from '../utils/dateUtils';
 
 export const FETCH_CALENDARS_PENDING = 'FETCH_CALENDARS_PENDING';
@@ -18,7 +18,7 @@ const gapiCalendarToCalendar = ({
 const gapiEventToEvent = ({
   id, summary, start, end,
 }) => ({
-  id, summary, start: start.dateTime, end: end.dateTime,
+  id, summary, start: toDateFromIso(start.dateTime), end: toDateFromIso(end.dateTime),
 });
 
 export const fetchCalendarsPending = () => ({

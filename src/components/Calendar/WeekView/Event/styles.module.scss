@@ -1,0 +1,17 @@
+@import "src/styles/variables";
+
+.Event {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 12px;
+  z-index: 2;
+  margin-right: 1rem;
+}
+
+.Event_summary {
+  font-weight: bold;
+  overflow: hidden;
+}
